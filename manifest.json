@@ -1,0 +1,46 @@
+{
+  "name": "แกลเลอรีวัดอริยวงศาราม",
+  "short_name": "แกลเลอรีวัด",
+  "description": "แกลเลอรีภาพวัดอริยวงศาราม อำเภอบ้านโป่ง จังหวัดราชบุรี ภาพกิจกรรมและบรรยากาศภายในวัด",
+  "start_url": "index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#b78c5a",
+  "background_color": "#f5f5f5",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/FknSrWtw/Watariya-Logo-02.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.ibb.co/FknSrWtw/Watariya-Logo-02.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.ibb.co/FknSrWtw/Watariya-Logo-02.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["travel", "photography"],
+  "screenshots": [
+    {
+      "src": "https://i.ibb.co/FknSrWtw/Watariya-Logo-02.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://i.ibb.co/FknSrWtw/Watariya-Logo-02.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
