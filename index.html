@@ -157,18 +157,45 @@
             color: #7a6857;
             font-weight: 300;
         }
-        
+
+        /* เพิ่ม/ปรับปรุง CSS ในส่วน style */
         #backToTop {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: #b78c5a;
+            /* สีทองของวัด */
+            border: none;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transform: translateY(4px);
             transition: all 0.3s ease;
+            z-index: 50;
+        }
+
+        #backToTop:hover {
+            background-color: #9e7346;
+            /* สีเข้มขึ้นเมื่อชี้ */
         }
 
         #backToTop.show {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+
+        #backToTop svg {
+            width: 1.5rem;
+            height: 1.5rem;
         }
     </style>
 </head>
@@ -287,10 +314,9 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop"
-        class="fixed bottom-6 right-6 w-12 h-12 bg-temple-gold hover:bg-temple-gold-dark text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transform translate-y-4 z-50 transition-all">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    <button id="backToTop" aria-label="กลับด้านบน">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
     </button>
 
