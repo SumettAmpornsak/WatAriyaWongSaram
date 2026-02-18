@@ -1,156 +1,214 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>กิจกรรม - วัดอริยวงศาราม</title>
-  <meta name="description" content="กิจกรรมและตารางงานบุญ วัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <style> /* reuse same style */ 
-    body { font-family: 'Prompt', sans-serif; background-color: #f9f7f4; color: #3a3a3a; }
-    .navbar { background-color: #ffffffdd; backdrop-filter: blur(8px); }
-    .navbar-brand { font-weight: 500; color: #5f4b3a; }
-    .nav-link { color: #5f4b3a; }
-    .nav-link:hover, .nav-link.active { color: #b78c5a; }
-    .section-title { font-weight: 300; letter-spacing: 2px; color: #5f4b3a; margin-bottom: 30px; position: relative; display: inline-block; }
-    .section-title:after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 2px; background-color: #b78c5a; }
-    footer { background-color: #e8e0d5; padding: 40px 0 20px; margin-top: 60px; }
-    .social-icons a { color: #5f4b3a; font-size: 1.8rem; margin: 0 10px; }
-    .card-event { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: 0.2s; border-left: 5px solid #b78c5a; margin-bottom: 20px; }
-    .card-event:hover { transform: translateX(5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .event-date { background: #f0ebe4; border-radius: 30px; padding: 5px 15px; display: inline-block; font-size: 0.9rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กิจกรรม - วัดอริยวงศาราม</title>
+    <meta name="description" content="กิจกรรมและตารางงานบุญ วัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        /* reuse same style */
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+        }
+
+        .navbar {
+            background-color: #ffffffdd;
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #5f4b3a;
+        }
+
+        .nav-link {
+            color: #5f4b3a;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #b78c5a;
+        }
+
+        .section-title {
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #5f4b3a;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #b78c5a;
+        }
+
+        footer {
+            background-color: #e8e0d5;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .social-icons a {
+            color: #5f4b3a;
+            font-size: 1.8rem;
+            margin: 0 10px;
+        }
+
+        .card-event {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+            transition: 0.2s;
+            border-left: 5px solid #b78c5a;
+            margin-bottom: 20px;
+        }
+
+        .card-event:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .event-date {
+            background: #f0ebe4;
+            border-radius: 30px;
+            padding: 5px 15px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="las la-leaf" style="color: #b78c5a;"></i> วัดอริยวงศาราม</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับวัด</a></li>
-          <li class="nav-item"><a class="nav-link active" href="activities.html">กิจกรรม</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <main style="padding-top: 80px;">
-    <section class="container py-5">
-      <h1 class="section-title" data-aos="fade-right">กิจกรรมและตารางงานบุญ</h1>
-      
-      <!-- กิจกรรมประจำสัปดาห์ -->
-      <div class="row" data-aos="fade-up">
-        <div class="col-lg-6">
-          <h3>📅 กิจกรรมปกติ</h3>
-          <div class="card-event">
-            <span class="event-date"><i class="las la-calendar"></i> ทุกวันพระ</span>
-            <h5 class="mt-2">สวดมนต์เย็น และฟังธรรม</h5>
-            <p>เวลา 19:00 - 20:30 น. ณ ศาลาการเปรียญ</p>
-          </div>
-          <div class="card-event">
-            <span class="event-date"><i class="las la-calendar"></i> ทุกวันอาทิตย์</span>
-            <h5 class="mt-2">ปฏิบัติธรรมสำหรับประชาชน</h5>
-            <p>เวลา 09:00 - 12:00 น. นั่งสมาธิ สนทนาธรรม</p>
-          </div>
-          <div class="card-event">
-            <span class="event-date"><i class="las la-calendar"></i> วันพุธ</span>
-            <h5 class="mt-2">ทำวัตรเช้า-เยง</h5>
-            <p>เปิดโอกาสให้ญาติโยมร่วมทำบุญตักบาตร</p>
-          </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="las la-leaf" style="color: #b78c5a;"></i>
+                วัดอริยวงศาราม</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับวัด</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="activities.html">กิจกรรม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">รูปภาพ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <!-- กิจกรรมพิเศษ ประจำปี -->
-        <div class="col-lg-6">
-          <h3>✨ กิจกรรมพิเศษ</h3>
-          <div class="card-event">
-            <span class="event-date">12 เม.ย. - 15 เม.ย.</span>
-            <h5 class="mt-2">งานเทศกาลสงกรานต์วัด</h5>
-            <p>สรงน้ำพระ รดน้ำดำหัวพระอาจารย์ และเล่นน้ำอย่างสงบ</p>
-          </div>
-          <div class="card-event">
-            <span class="event-date">วันวิสาขบูชา</span>
-            <h5 class="mt-2">เวียนเทียน ฟังธรรมตลอดคืน</h5>
-            <p>เริ่มเวลา 19:00 น. รอบพระอุโบสถ</p>
-          </div>
-          <div class="card-event">
-            <span class="event-date">ตุลาคม</span>
-            <h5 class="mt-2">ทอดกฐินสามัคคี</h5>
-            <p>ร่วมทำบุญทอดกฐิน บำรุงวัด</p>
-          </div>
+    <main style="padding-top: 80px;">
+        <section class="container py-5">
+            <h1 class="section-title" data-aos="fade-right">กิจกรรมและตารางงานบุญ</h1>
+
+            <!-- กิจกรรมประจำสัปดาห์ -->
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <h3>กิจกรรมปกติ</h3>
+                    <div class="card-event">
+                        <span class="event-date"><i class="las la-calendar"></i> ทุกวันพระ</span>
+                        <h5 class="mt-2">สวดมนต์เย็น และฟังธรรม</h5>
+                        <p>เวลา 19:00 - 20:30 น. ณ ศาลาการเปรียญ</p>
+                    </div>
+                    <div class="card-event">
+                        <span class="event-date"><i class="las la-calendar"></i> ทุกวันอาทิตย์</span>
+                        <h5 class="mt-2">ปฏิบัติธรรมสำหรับประชาชน</h5>
+                        <p>เวลา 09:00 - 12:00 น. นั่งสมาธิ สนทนาธรรม</p>
+                    </div>
+                    <div class="card-event">
+                        <span class="event-date"><i class="las la-calendar"></i> วันพุธ</span>
+                        <h5 class="mt-2">ทำวัตรเช้า-เยง</h5>
+                        <p>เปิดโอกาสให้ญาติโยมร่วมทำบุญตักบาตร</p>
+                    </div>
+                </div>
+
+                <!-- กิจกรรมพิเศษ ประจำปี -->
+                <div class="col-lg-6">
+                    <h3>กิจกรรมพิเศษ</h3>
+                    <div class="card-event">
+                        <span class="event-date">12 เม.ย. - 15 เม.ย.</span>
+                        <h5 class="mt-2">งานเทศกาลสงกรานต์วัด</h5>
+                        <p>สรงน้ำพระ รดน้ำดำหัวพระอาจารย์ และเล่นน้ำอย่างสงบ</p>
+                    </div>
+                    <div class="card-event">
+                        <span class="event-date">วันวิสาขบูชา</span>
+                        <h5 class="mt-2">เวียนเทียน ฟังธรรมตลอดคืน</h5>
+                        <p>เริ่มเวลา 19:00 น. รอบพระอุโบสถ</p>
+                    </div>
+                    <div class="card-event">
+                        <span class="event-date">ตุลาคม</span>
+                        <h5 class="mt-2">ทอดกฐินสามัคคี</h5>
+                        <p>ร่วมทำบุญทอดกฐิน บำรุงวัด</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- อัลบั้มรูปกิจกรรม (ใช้ Swiper เล็ก) -->
+            <div class="mt-5" data-aos="zoom-in">
+                <h3 class="section-title">ภาพกิจกรรมที่ผ่านมา</h3>
+                <div class="swiper activitySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"
+                            style="height:250px; background:#d4ccc2; border-radius:15px; display:flex; align-items:center; justify-content:center;">
+                            📸 กิจกรรม 1</div>
+                        <div class="swiper-slide"
+                            style="height:250px; background:#d4ccc2; border-radius:15px; display:flex; align-items:center; justify-content:center;">
+                            📸 กิจกรรม 2</div>
+                        <div class="swiper-slide"
+                            style="height:250px; background:#d4ccc2; border-radius:15px; display:flex; align-items:center; justify-content:center;">
+                            📸 กิจกรรม 3</div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p class="text-lg mb-2">© <span id="year-th"></span> วัดอริยวงศาราม (หนองน้ำขาว)</p>
+                <p class="text-sm opacity-80">Sumett Ampornsak | All rights reserved.</p>
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <!-- อัลบั้มรูปกิจกรรม (ใช้ Swiper เล็ก) -->
-      <div class="mt-5" data-aos="zoom-in">
-        <h3 class="section-title">ภาพกิจกรรมที่ผ่านมา</h3>
-        <div class="swiper activitySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" style="height:250px; background:#d4ccc2; border-radius:15px; display:flex; align-items:center; justify-content:center;">📸 กิจกรรม 1</div>
-            <div class="swiper-slide" style="height:250px; background:#d4ccc2; border-radius:15px; display:flex; align-items:center; justify-content:center;">📸 กิจกรรม 2</div>
-            <div class="swiper-slide" style="height:250px; background:#d4ccc2; border-radius:15px; display:flex; align-items:center; justify-content:center;">📸 กิจกรรม 3</div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        AOS.init();
+        var actSwiper = new Swiper('.activitySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            loop: true
+        });
 
-      <!-- ปุ่มทดสอบ SweetAlert (ตัวอย่าง) -->
-      <div class="text-center mt-5">
-        <button class="btn btn-gold" onclick="showInterest()" data-aos="fade-up">แจ้งความจำนงร่วมกิจกรรม</button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h5><i class="las la-leaf"></i> วัดอริยวงศาราม(หนองน้ำขาว)</h5>
-          <p>99 หมู่ 3 ต.หนองน้ำขาว อ.บ้านโป่ง จ.ราชบุรี 70190</p>
-          <p>โทร: 032-123-456</p>
-        </div>
-        <div class="col-md-6 text-md-end social-icons">
-          <a href="#"><i class="lab la-facebook"></i></a>
-          <a href="#"><i class="lab la-line"></i></a>
-          <a href="#"><i class="lab la-instagram"></i></a>
-          <a href="#"><i class="lab la-youtube"></i></a>
-        </div>
-      </div>
-      <hr><div class="text-center mt-3"><small>© 2568 วัดอริยวงศาราม</small></div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    AOS.init();
-    var actSwiper = new Swiper('.activitySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      loop: true
-    });
-
-    function showInterest() {
-      Swal.fire({
-        title: "ขอบคุณที่สนใจ",
-        text: "เจ้าหน้าที่จะติดต่อกลับไปเร็วๆ นี้",
-        icon: "success",
-        confirmButtonColor: "#b78c5a",
-        confirmButtonText: "ตกลง"
-      });
-    }
-  </script>
+        // Set year
+        document.getElementById('year-th').textContent = new Date().getFullYear() + 543;
+    </script>
 </body>
+
 </html>

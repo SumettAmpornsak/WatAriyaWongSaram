@@ -1,121 +1,225 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ติดต่อ - วัดอริยวงศาราม</title>
-  <meta name="description" content="ติดต่อวัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี แผนที่ เบอร์โทร อีเมล">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <style> /* reuse style */ 
-    body { font-family: 'Prompt', sans-serif; background-color: #f9f7f4; color: #3a3a3a; }
-    .navbar { background-color: #ffffffdd; backdrop-filter: blur(8px); }
-    .navbar-brand { font-weight: 500; color: #5f4b3a; }
-    .nav-link { color: #5f4b3a; }
-    .nav-link:hover, .nav-link.active { color: #b78c5a; }
-    .section-title { font-weight: 300; letter-spacing: 2px; color: #5f4b3a; margin-bottom: 30px; position: relative; display: inline-block; }
-    .section-title:after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 2px; background-color: #b78c5a; }
-    footer { background-color: #e8e0d5; padding: 40px 0 20px; margin-top: 60px; }
-    .contact-info i { color: #b78c5a; width: 30px; }
-    .form-control, .form-control:focus { border-radius: 30px; border: 1px solid #ddd; box-shadow: none; padding: 12px 20px; }
-    .btn-gold { background-color: #b78c5a; border: none; color: white; padding: 12px 30px; border-radius: 30px; }
-    .btn-gold:hover { background-color: #9e7346; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อ - วัดอริยวงศาราม(หนองน้ำขาว) บ้านโป่ง ราชบุรี</title>
+    <meta name="description"
+        content="ติดต่อวัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี แผนที่ เบอร์โทร อีเมล และผู้ดูแลเว็บไซต์">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icons8 Line Awesome -->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+        }
+
+        .navbar {
+            background-color: #ffffffdd;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #5f4b3a;
+        }
+
+        .nav-link {
+            color: #5f4b3a;
+            font-weight: 400;
+            margin: 0 5px;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #b78c5a;
+        }
+
+        .section-title {
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #5f4b3a;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #b78c5a;
+        }
+
+        .contact-info i {
+            color: #b78c5a;
+            width: 30px;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-outline-secondary {
+            border-color: #d4ccc2;
+            color: #5f4b3a;
+            border-radius: 30px;
+            padding: 8px 20px;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #b78c5a;
+            border-color: #b78c5a;
+            color: white;
+        }
+
+        footer {
+            background-color: #e8e0d5;
+            padding: 40px 0 20px;
+            color: #5f4b3a;
+            margin-top: 60px;
+        }
+
+        .social-icons a {
+            color: #5f4b3a;
+            font-size: 1.8rem;
+            margin: 0 10px;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #b78c5a;
+        }
+    </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="las la-leaf" style="color: #b78c5a;"></i> วัดอริยวงศาราม</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับวัด</a></li>
-          <li class="nav-item"><a class="nav-link" href="activities.html">กิจกรรม</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contact.html">ติดต่อ</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- Navbar (เหมือนเดิม) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="las la-leaf" style="color: #b78c5a;"></i> วัดอริยวงศาราม
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับวัด</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html">กิจกรรม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">รูปภาพ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">ติดต่อ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <main style="padding-top: 80px;">
-    <section class="container py-5">
-      <h1 class="section-title" data-aos="fade-right">ติดต่อวัด</h1>
-      <div class="row g-5">
-        <div class="col-md-6" data-aos="fade-up">
-          <div class="contact-info">
-            <p><i class="las la-map-marker"></i> 99 หมู่ 3 ต.หนองน้ำขาว อ.บ้านโป่ง จ.ราชบุรี 70190</p>
-            <p><i class="las la-phone"></i> 032-123-456, 081-234-5678</p>
-            <p><i class="las la-envelope"></i> watariyawong@dharma.com</p>
-            <p><i class="las la-clock"></i> เปิดทุกวัน 08:00 - 18:00 น.</p>
-          </div>
-          <!-- แผนที่แบบย่อ -->
-          <div class="map-container mt-4">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.5695813440767!2d99.87154331483323!3d13.814199990295805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQ4JzUxLjEiTiA5OcKwNTInMjUuMSJF!5e0!3m2!1sth!2sth!4v1620000000000!5m2!1sth!2sth" width="100%" height="250" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <h3>ส่งข้อความถึงเรา</h3>
-          <form id="contactForm" onsubmit="submitForm(event)">
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="ชื่อ" required>
-            </div>
-            <div class="mb-3">
-              <input type="email" class="form-control" placeholder="อีเมล" required>
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="เบอร์โทร (ไม่จำเป็น)">
-            </div>
-            <div class="mb-3">
-              <textarea class="form-control" rows="5" placeholder="ข้อความ..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold w-100">ส่งข้อความ</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+    <main style="padding-top: 80px;">
+        <section class="container py-5">
+            <h1 class="section-title" data-aos="fade-right">ติดต่อวัด</h1>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h5><i class="las la-leaf"></i> วัดอริยวงศาราม(หนองน้ำขาว)</h5>
-          <p>99 หมู่ 3 ต.หนองน้ำขาว อ.บ้านโป่ง จ.ราชบุรี 70190</p>
-          <p>โทร: 032-123-456</p>
-        </div>
-        <div class="col-md-6 text-md-end social-icons">
-          <a href="#"><i class="lab la-facebook"></i></a>
-          <a href="#"><i class="lab la-line"></i></a>
-          <a href="#"><i class="lab la-instagram"></i></a>
-          <a href="#"><i class="lab la-youtube"></i></a>
-        </div>
-      </div>
-      <hr><div class="text-center mt-3"><small>© 2568 วัดอริยวงศาราม</small></div>
-    </div>
-  </footer>
+            <div class="row g-5">
+                <!-- คอลัมน์ซ้าย: ข้อมูลติดต่อวัดและแผนที่ (คงเดิม) -->
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100"
+                    style="background-color: #ffffffdd; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 20px;">
+                    <div class="contact-info">
+                        <p><i class="las la-map-marker"></i> 99 หมู่ 3 ต.หนองน้ำขาว อ.บ้านโป่ง จ.ราชบุรี 70190</p>
+                        <p><i class="las la-phone"></i> 032-123-456, 081-234-5678</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    AOS.init();
-    function submitForm(e) {
-      e.preventDefault();
-      Swal.fire({
-        title: 'ส่งข้อความสำเร็จ',
-        text: 'ทางวัดจะติดต่อกลับโดยเร็วที่สุด',
-        icon: 'success',
-        confirmButtonColor: '#b78c5a',
-        confirmButtonText: 'ปิด'
-      });
-      document.getElementById('contactForm').reset();
-    }
-  </script>
+                    </div>
+                    <!-- แผนที่ (เดิม) -->
+                    <div class="map-container mt-4">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15500.528415033432!2d99.9353326!3d13.770906049999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2e1b010d515e1%3A0x854afee0bb3ed9a3!2z4Lin4Lix4LiU4Lit4Lij4Li04Lii4Lin4LiH4Lio4Liy4Lij4Liy4LihICjguKfguLHguJTguKvguJnguK3guIfguJnguYnguLPguILguLLguKcp!5e0!3m2!1sth!2sth!4v1771418494901!5m2!1sth!2sth"
+                            width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- คอลัมน์ขวา: ข้อมูล ADMIN (ปรับใหม่ตามเว็บวัดป่าปลักประดู่) -->
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <p class="mt-3">
+                        <!-- ใส่รุปเราขอบวงกลม -->
+                    <div class="d-flex align-items-center">
+                        <img src="https://yt3.googleusercontent.com/ytc/AIdro_kA0irHAG_1C1K1Hv-TZUGCIYO9i6ckfRARIcXMj8m_19g2=s160-c-k-c0x00ffffff-no-rj"
+                            alt="Sumett Ampornsak" class="rounded-circle me-3" width="100" height="100">
+                        <div>
+                            <strong>Sumett Ampornsak</strong><br>
+                            <span class="text-muted">ผู้พัฒนาเว็บไซต์วัดอริยวงศาราม</span>
+                        </div>
+                    </div>
+                    </p>
+                    <p>ช่องทางการติดตาม</p>
+                    <div class="d-flex gap-4 flex-wrap">
+                        <a href="https://www.facebook.com/Sumettstudio1" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="lab la-facebook"></i> Facebook (Sumettstudio1)
+                        </a>
+                        <a href="https://www.youtube.com/c/Sumettstudio" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="lab la-youtube"></i> Youtube (Sumett studio)
+                        </a>
+                    </div>
+                    <p class="mt-3">สอบถามข้อมูลเพิ่มเติม</p>
+                    <div class="d-flex gap-4 flex-wrap">
+                        <a href="https://sumettampornsak.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="las la-home"></i> HOME
+                        </a>
+                        <a href="https://appcenter-nine.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="las la-mobile-alt"></i> APPCENTER
+                        </a>
+                    </div>
+                    <!-- ส่วนเวอร์ชัน (เพิ่มเติมจากต้นแบบ) -->
+                    <div class="mt-4 small text-muted">
+                        <div>เวอร์ชัน: 1.0.0</div>
+                        <div>อัปเดตล่าสุด: 18 กุมภาพันธ์ 2569</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p class="text-lg mb-2">© <span id="year-th"></span> วัดอริยวงศาราม (หนองน้ำขาว)</p>
+                <p class="text-sm opacity-80">Sumett Ampornsak | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Set year
+        document.getElementById('year-th').textContent = new Date().getFullYear() + 543;
+    </script>
 </body>
+
 </html>
