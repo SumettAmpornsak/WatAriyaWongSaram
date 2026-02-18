@@ -4,23 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แกลเลอรีรูปภาพ - วัดอริยวงศาราม(หนองน้ำขาว) บ้านโป่ง ราชบุรี</title>
+    <title>แกลเลอรีภาพถ่าย - วัดอริยวงศาราม (หนองน้ำขาว)</title>
     <!-- SEO Meta -->
-    <meta name="description"
-        content="รวมภาพบรรยากาศวัดอริยวงศาราม กิจกรรมสำคัญ และความสงบภายในวัด หนองน้ำขาว บ้านโป่ง ราชบุรี">
-    <meta name="keywords" content="รูปภาพวัด, กิจกรรมวัด, วัดอริยวงศาราม, หนองน้ำขาว, บ้านโป่ง, ราชบุรี">
-    <meta property="og:title" content="แกลเลอรี - วัดอริยวงศาราม">
-    <meta property="og:description" content="ชมภาพความประทับใจภายในวัดสไตล์มินิมอล">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=วัดอริยวงศาราม">
+    <meta name="description" content="รวมภาพบรรยากาศ กิจกรรม และความงามของวัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี">
+    <meta name="keywords" content="รูปวัดอริยวงศาราม, กิจกรรมวัด, ภาพถ่ายวัด, หนองน้ำขาว, บ้านโป่ง">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Prompt -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Icons8 Line Awesome -->
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- Fancybox 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <style>
         body {
             font-family: 'Prompt', sans-serif;
@@ -70,35 +65,119 @@
             background-color: #b78c5a;
         }
 
-        .gallery-item {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
-            transition: 0.3s;
-            background: white;
-            cursor: pointer;
+        /* ปุ่มกรองกิจกรรม */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        .filter-btn {
+            border-radius: 40px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.2s;
+            border: 1px solid #b78c5a;
+            color: #5f4b3a;
+            background: transparent;
+        }
+        .filter-btn:hover {
+            background: #b78c5a;
+            color: white;
+        }
+        .filter-btn.active {
+            background: #b78c5a;
+            color: white;
+            border-color: #b78c5a;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        /* กล่องกิจกรรม */
+        .activity-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .activity-title {
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: #5f4b3a;
+            border-left: 5px solid #b78c5a;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .activity-title small {
+            font-size: 1rem;
+            color: #8f7b67;
+            font-weight: 300;
+            margin-left: 0.5rem;
+        }
+
+        /* การ์ดรูปภาพ */
+        .gallery-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .gallery-link:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 30px rgba(0, 0, 0, 0.1);
         }
 
         .gallery-img {
             width: 100%;
             aspect-ratio: 4/3;
+            overflow: hidden;
             background-color: #d4ccc2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #7a6857;
-            font-size: 1rem;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-link:hover .gallery-img img {
+            transform: scale(1.08);
         }
 
         .gallery-caption {
-            padding: 15px;
+            padding: 12px 10px;
             text-align: center;
             background: white;
+        }
+
+        .gallery-caption p {
+            margin: 0;
+            font-weight: 400;
+            color: #5f4b3a;
+            font-size: 1rem;
+        }
+
+        .gallery-caption small {
+            color: #9b8b7a;
+            font-size: 0.8rem;
+        }
+
+        /* ตัวคั่นระหว่างกิจกรรม */
+        .activity-divider {
+            width: 80px;
+            height: 2px;
+            background: #e0d6cb;
+            margin: 2rem auto 0;
+        }
+
+        .activity-block:last-child .activity-divider {
+            display: none;
         }
 
         footer {
@@ -118,7 +197,8 @@
         .social-icons a:hover {
             color: #b78c5a;
         }
-        /* เพิ่ม/ปรับปรุง CSS ในส่วน style */
+
+        /* Back to Top */
         #backToTop {
             position: fixed;
             bottom: 1.5rem;
@@ -126,7 +206,6 @@
             width: 3rem;
             height: 3rem;
             background-color: #b78c5a;
-            /* สีทองของวัด */
             border: none;
             border-radius: 9999px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -144,7 +223,6 @@
 
         #backToTop:hover {
             background-color: #9e7346;
-            /* สีเข้มขึ้นเมื่อชี้ */
         }
 
         #backToTop.show {
@@ -161,12 +239,10 @@
 </head>
 
 <body>
-    <!-- Navbar (เพิ่มลิงก์ รูปภาพ และตั้ง active) -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="las la-leaf" style="color: #b78c5a;"></i> วัดอริยวงศาราม
-            </a>
+            <a class="navbar-brand" href="index.html"><i class="las la-leaf" style="color: #b78c5a;"></i> วัดอริยวงศาราม</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -184,108 +260,16 @@
 
     <main style="padding-top: 80px;">
         <section class="container py-5">
-            <h1 class="section-title" data-aos="fade-right">แกลเลอรีภาพถ่าย</h1>
-            <p class="text-muted" data-aos="fade-up">บรรยากาศภายในวัด กิจกรรม และความสงบร่มรื่น ณ วัดอริยวงศาราม</p>
+            <h1 class="section-title">แกลเลอรีภาพถ่าย</h1>
+            <p class="text-muted mb-4">รวมภาพบรรยากาศ กิจกรรม และความประทับใจภายในวัดอริยวงศาราม (หนองน้ำขาว)</p>
 
-            <!-- Grid รูปภาพ 2 คอลัมน์บนมือถือ, 3 บนแท็บเล็ต, 4 บนจอใหญ่ -->
-            <div class="row g-4 mt-3">
-                <!-- รูปที่ 1 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-image" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">พระอุโบสถ</p>
-                            <small class="text-muted">บรรยากาศสงบ</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 2 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="50">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-leaf" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">สวนธรรม</p>
-                            <small class="text-muted">ร่มรื่น</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 3 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-pray" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">กิจกรรมปฏิบัติธรรม</p>
-                            <small class="text-muted">วันอาทิตย์</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 4 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-water" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">หนองน้ำขาว</p>
-                            <small class="text-muted">วิวธรรมชาติ</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 5 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-sun" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">พระอาทิตย์ตก</p>
-                            <small class="text-muted">มุมสงบ</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 6 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="250">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-tree" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">ต้นไม้ใหญ่</p>
-                            <small class="text-muted">ร่มรื่น</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 7 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-calendar" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">งานบุญวันวิสาขบูชา</p>
-                            <small class="text-muted">เวียนเทียน</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- รูปที่ 8 -->
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="350">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <i class="las la-child" style="font-size: 3rem;"></i>
-                        </div>
-                        <div class="gallery-caption">
-                            <p class="mb-0">ค่ายเยาวชน</p>
-                            <small class="text-muted">เรียนรู้ธรรมะ</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- กรองกิจกรรม: ปุ่มจะถูกสร้างจาก JavaScript ด้วยข้อมูล galleryData -->
+            <div id="filterContainer" class="filter-container"></div>
+
+            <!-- ที่สำหรับแสดงกิจกรรมทั้งหมด (สร้างจาก JavaScript) -->
+            <div id="galleryContainer"></div>
+
+            <p class="text-muted text-center mt-5">* คลิกที่รูปเพื่อดูขนาดใหญ่ และสามารถเลื่อนชมภาพอื่น ๆ ในหมวดเดียวกันได้</p>
         </section>
     </main>
 
@@ -308,32 +292,161 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        // ---------- ข้อมูลรูปภาพทั้งหมดในรูปแบบ Object (galleryData) ----------
+        const galleryData = [
+            {
+                id: 'yak-yod',
+                name: 'งานยกยอดพระเจดีย์',
+                dateRange: 'วันเสาร์ที่ ๑๑ กรกฎาคม ๒๕๕๘',
+                details: 'เพื่อบรรจุพระบรมสารีริกธาตุ และพระอรหันตธาตุ โดยมี หลวงปู่สนั่น จิณณธัมโม เป็นองค์ประธาน',
+                folder: 'การยกยอดพระเจดีย์อริยชลิตเจดีย์',
+                count: 12,
+                images: Array.from({ length: 12 }, (_, i) => ({
+                    file: `${String(i + 1).padStart(2, '0')}.webp`,
+                    caption: 'วันเสาร์ที่ ๑๑ กรกฎาคม ๒๕๕๘',
+                    extra: 'หลวงปู่สนั่น จิณณธัมโม เป็นองค์ประธาน'
+                }))
+            },
+            {
+                id: 'mae-pin',
+                name: 'งานบุญฯ ท่านพ่อมหาปิ่น',
+                dateRange: 'วันศุกร์ที่ ๓๑ พฤษภาคม - วันอาทิตย์ที่ ๒ มิถุนายน ๒๕๖๒',
+                details: 'เพื่อบำเพ็ญกุศลบูชาคุณในวาระครบรอบวันละสังขาร ท่านพ่อมหาปิ่น ชลิโต โดยมี พระมหาเกรียงไกร เป็นองค์ประธาน',
+                folder: 'งานบุญบำเพ็ญกุศล ท่านพ่อมหาปิ่น ชลิโต',
+                count: 25,
+                images: Array.from({ length: 25 }, (_, i) => ({
+                    file: `${String(i + 1).padStart(2, '0')}.webp`,
+                    caption: 'วันศุกร์ที่ ๓๑ พฤษภาคม - ๒ มิถุนายน ๒๕๖๒',
+                    extra: 'พระมหาเกรียงไกร เป็นองค์ประธาน'
+                }))
+            },
+            {
+                id: 'burapha',
+                name: 'งานหล่อบูรพาจารย์',
+                dateRange: 'วันที่ 13 กุมภาพันธ์ 69',
+                details: 'งานหล่อบูรพาจารย์ 5 องค์ วัดป่าปลักประดู่ ตำบลดอนกระเบื้อง อำเภอบ้านโป่ง จังหวัดราชบุรี พระอุดมคัมภิรญาณ (พระมหามานพ จาครโต) ได้เมตตาร่วมงาน',
+                folder: 'งานหล่อบูรพาจารย์ 5 องค์วัดป่าปลักประดู่',
+                count: 5,
+                images: Array.from({ length: 5 }, (_, i) => ({
+                    file: `${String(i + 1).padStart(2, '0')}.webp`,
+                    caption: 'วันที่ 13 กุมภาพันธ์ 69',
+                    extra: 'วัดป่าปลักประดู่'
+                }))
+            },
+            {
+                id: 'pid-thong',
+                name: 'ร่วมพิธีเปิดงานปิดทอง',
+                dateRange: 'วันที่ 14 กุมภาพันธ์ 69',
+                details: 'ร่วมพิธีเปิดงานปิดทองฝังลูกนิมิต วัดป่าปลักประดู่ ตำบลดอนกระเบื้อง อำเภอบ้านโป่ง จังหวัดราชบุรี',
+                folder: 'เปิดงานปิดทองวัดป่าปลักประดู่',
+                count: 10,
+                images: Array.from({ length: 10 }, (_, i) => ({
+                    file: `${String(i + 1).padStart(2, '0')}.webp`,
+                    caption: 'วันที่ 14 กุมภาพันธ์ 69',
+                    extra: 'วัดป่าปลักประดู่'
+                }))
+            },
+            {
+                id: 'phra-ake',
+                name: 'พระมหาเอกนำพรมน้ำมนต์',
+                dateRange: 'วันที่ 15 กุมภาพันธ์ 2569',
+                details: 'พระมหาเอกได้นำทีมพระสงฆ์ร่วมพรมน้ำมนต์ งานปิดทองฝังลูกนิมิต วัดป่าปลักประดู่ ตำบลดอนกระเบื้อง อำเภอบ้านโป่ง จังหวัดราชบุรี',
+                folder: 'งานปิดทองฝังลูกนิมิต วัดป่าปลักประดู่',
+                count: 4,
+                images: Array.from({ length: 4 }, (_, i) => ({
+                    file: `${String(i + 1).padStart(2, '0')}.webp`,
+                    caption: 'วันที่ 15 กุมภาพันธ์ 2569',
+                    extra: 'พระมหาเอกนำทีมพระสงฆ์'
+                }))
+            }
+        ];
 
-        // เพิ่ม event listener ให้กับทุก .gallery-item
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const caption = item.querySelector('.gallery-caption p').innerText;
-                Swal.fire({
-                    title: caption,
-                    text: 'ภาพถ่ายจากวัดอริยวงศาราม',
-                    imageUrl: 'https://via.placeholder.com/800x300?text=' + encodeURIComponent(caption),
-                    imageWidth: 800,
-                    imageHeight: 300,
-                    imageAlt: caption,
-                    confirmButtonColor: '#b78c5a',
-                    confirmButtonText: 'ปิด'
-                });
+        // คำนวณจำนวนภาพทั้งหมด
+        const totalImages = galleryData.reduce((acc, cat) => acc + cat.count, 0);
+
+        // ---------- สร้างปุ่มกรอง ----------
+        const filterContainer = document.getElementById('filterContainer');
+        filterContainer.innerHTML = `
+            <button class="filter-btn active" data-filter="all">ทั้งหมด (${totalImages})</button>
+            ${galleryData.map(cat => `<button class="filter-btn" data-filter="${cat.id}">${cat.name} (${cat.count})</button>`).join('')}
+        `;
+
+        // ---------- สร้าง HTML สำหรับแต่ละกิจกรรม ----------
+        const galleryContainer = document.getElementById('galleryContainer');
+
+        function renderGallery() {
+            let html = '';
+            galleryData.forEach(cat => {
+                const basePath = `img/Activities/${cat.folder}/`;
+                const imagesHtml = cat.images.map(img => `
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <a href="${basePath}${img.file}" data-fancybox="${cat.id}-group" data-caption="${img.caption} - ${img.extra}" class="gallery-link">
+                            <div class="gallery-img"><img src="${basePath}${img.file}" alt="${cat.name}"></div>
+                            <div class="gallery-caption">
+                                <p>${cat.dateRange}</p>
+                                <small>${img.extra}</small>
+                            </div>
+                        </a>
+                    </div>
+                `).join('');
+
+                html += `
+                    <div class="activity-block" data-category="${cat.id}">
+                        <h2 class="activity-title">${cat.name} <small>${cat.count} รูป</small></h2>
+                        <div class="row g-4">
+                            ${imagesHtml}
+                        </div>
+                        <div class="activity-divider"></div>
+                    </div>
+                `;
+            });
+            galleryContainer.innerHTML = html;
+
+            // ผูก Fancybox กับ element ใหม่
+            Fancybox.bind('[data-fancybox]', {
+                caption: function (fancybox, carousel, slide) {
+                    return slide.caption || slide.triggerEl?.dataset.caption || '';
+                },
+                Thumbs: { autoStart: true }
+            });
+        }
+
+        renderGallery();
+
+        // ---------- ฟังก์ชันกรองกิจกรรม ----------
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const activityBlocks = () => document.querySelectorAll('.activity-block');
+
+        function filterGallery(filterValue) {
+            activityBlocks().forEach(block => {
+                if (filterValue === 'all' || block.dataset.category === filterValue) {
+                    block.style.display = 'block';
+                } else {
+                    block.style.display = 'none';
+                }
+            });
+
+            // อัปเดต active class บนปุ่ม
+            filterButtons.forEach(btn => {
+                const btnFilter = btn.dataset.filter;
+                if (btnFilter === filterValue) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filterValue = e.target.dataset.filter;
+                filterGallery(filterValue);
             });
         });
 
-        // Set year
+        // แสดงปี พ.ศ.
         document.getElementById('year-th').textContent = new Date().getFullYear() + 543;
 
         // Back to top
