@@ -197,6 +197,32 @@
             width: 1.5rem;
             height: 1.5rem;
         }
+
+        .hero-bg {
+            position: relative;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            background: none;
+            /* ยกเลิก background ที่อาจมีอยู่ */
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/Location/07.webp');
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            /* เบลอเฉพาะพื้นหลัง */
+            z-index: -1;
+            /* ไว้ด้านหลังข้อความ */
+        }
     </style>
 </head>
 
@@ -225,12 +251,14 @@
     <!-- Main content -->
     <main>
         <!-- Hero section -->
-        <section class="hero text-center" style="background-image: url('img/Location/07.webp'); background-size: cover; background-position: center; position: relative; color: #ffffff; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); blur effect: blur(5px); ">
+        <section class="hero text-center hero-bg">
             <div class="container">
-                <h1 class="display-4 fw-light bold" data-aos="fade-up" style="color: #ffffff;">วัดอริยวงศาราม (หนองน้ำขาว)</h1>
-                <p class="lead" style="color: #ffffff;" data-aos="fade-up" data-aos-delay="100">วัดราษฎร์ธรรมยุติกนิกาย</p>
-                <p class="mt-4"  style="color: #ffffff;"data-aos="fade-up" data-aos-delay="200">หมู่ 3 ต.ดอนกระเบื้อง อ.บ้านโป่ง จ.ราชบุรี 70110<br> โทร. 098-497-8916, 032-299-406</p>
-
+                <h1 class="display-4 fw-light" data-aos="fade-up">วัดอริยวงศาราม (หนองน้ำขาว)</h1>
+                <p class="lead" data-aos="fade-up" data-aos-delay="100">วัดราษฎร์ธรรมยุติกนิกาย</p>
+                <p class="mt-4" data-aos="fade-up" data-aos-delay="200">
+                    หมู่ 3 ต.ดอนกระเบื้อง อ.บ้านโป่ง จ.ราชบุรี 70110<br>
+                    โทร. 098-497-8916, 032-299-406
+                </p>
             </div>
         </section>
 
@@ -240,20 +268,36 @@
             <div class="swiper mySwiper" data-aos="zoom-in" data-aos-delay="100">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="img/Old/Old-2563_02.webp" class="d-block w-100 h-100"
-                            alt="บรรยากาศวัดอริยวงศาราม - มุมสงบ 1" style="object-fit: cover;">
+                        <img src="img/Location/01.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม1"
+                            style="object-fit: cover;" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/วัด-บรรยากาศ-01.jpg" class="d-block w-100 h-100"
-                            alt="บรรยากาศวัดอริยวงศาราม - มุมสงบ 1" style="object-fit: cover;">
+                        <img src="img/Location/02.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม2"
+                            style="object-fit: cover;" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/วัด-บรรยากาศ-01.jpg" class="d-block w-100 h-100"
-                            alt="บรรยากาศวัดอริยวงศาราม - มุมสงบ 1" style="object-fit: cover;">
+                        <img src="img/Location/03.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม3"
+                            style="object-fit: cover;" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/วัด-บรรยากาศ-01.jpg" class="d-block w-100 h-100"
-                            alt="บรรยากาศวัดอริยวงศาราม - มุมสงบ 1" style="object-fit: cover;">
+                        <img src="img/Location/04.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม4"
+                            style="object-fit: cover;" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/05.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม5"
+                            style="object-fit: cover;" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/06.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม6"
+                            style="object-fit: cover;" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/07.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม7"
+                            style="object-fit: cover;" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/08.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม8"
+                            style="object-fit: cover;" loading="lazy">
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -332,6 +376,11 @@
         // Initialize Swiper
         var swiper = new Swiper('.mySwiper', {
             loop: true,
+            spaceBetween: 0,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -343,6 +392,9 @@
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
+            },
+            lazy: {
+                loadPrevNext: true,
             },
         });
 
