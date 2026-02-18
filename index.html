@@ -16,6 +16,29 @@
     <meta property="og:description" content="วัดสไตล์มินิมอล สงบ ร่มรื่น เปิดให้ทุกคนได้มาปฏิบัติธรรมและร่วมกิจกรรม">
     <meta property="og:image" content="img/Location/07.webp">
     <meta property="og:url" content="https://watariyawongsaram.vercel.app/">
+    <!-- Schema.org for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BuddhistTemple",
+      "name": "วัดอริยวงศาราม (หนองน้ำขาว)",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "หมู่ 3 ต.ดอนกระเบื้อง",
+        "addressLocality": "อ.บ้านโป่ง",
+        "addressRegion": "ราชบุรี",
+        "postalCode": "70110",
+        "addressCountry": "TH"
+      },
+      "telephone": "098-497-8916",
+      "url": "https://watariyawongsaram.vercel.app/",
+      "sameAs": [
+        "https://www.facebook.com/yourpage",
+        "https://www.youtube.com/yourchannel",
+        "https://line.me/yourline"
+      ]
+    }
+    </script>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Prompt จาก Google Fonts -->
@@ -25,7 +48,7 @@
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Swiper CSS (sweeper.js -> Swiper) -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom style -->
     <style>
@@ -66,6 +89,8 @@
             border-radius: 30px;
             font-weight: 400;
             transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-gold:hover {
@@ -93,8 +118,8 @@
         }
 
         .hero {
-            padding: 100px 0 80px;
-            background: linear-gradient(145deg, #f0ebe4 0%, #faf7f2 100%);
+            padding: 0;
+            background: none;
         }
 
         .card-custom {
@@ -111,15 +136,51 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .swiper-slide {
-            background: #e0d9d0;
-            border-radius: 20px;
-            height: 400px;
+        /* Swiper styles สำหรับ hero */
+        .heroSwiper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .heroSwiper .swiper-button-prev,
+        .heroSwiper .swiper-button-next {
+            color: white;
+            background: rgba(0,0,0,0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #5f4b3a;
-            font-size: 1.5rem;
+        }
+
+        .heroSwiper .swiper-pagination-bullet {
+            background: white;
+            opacity: 0.8;
+        }
+
+        .heroSwiper .swiper-pagination-bullet-active {
+            background: #b78c5a;
+        }
+
+        .heroSwiper .swiper-slide {
+            height: 100%;
+        }
+
+        .heroSwiper .swiper-slide img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .herop {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 500;
         }
 
         footer {
@@ -146,7 +207,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        /* สไตล์สำหรับรูปภาพ placeholder */
         .img-placeholder {
             background-color: #d4ccc2;
             width: 100%;
@@ -158,7 +218,45 @@
             font-weight: 300;
         }
 
-        /* เพิ่ม/ปรับปรุง CSS ในส่วน style */
+        /* Parallax */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            margin: 50px 0;
+        }
+
+        /* Counter */
+        .counter-box {
+            text-align: center;
+            padding: 20px;
+        }
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #b78c5a;
+        }
+
+        /* Scroll Progress Bar */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background-color: #b78c5a;
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+
+        /* Back to Top */
         #backToTop {
             position: fixed;
             bottom: 1.5rem;
@@ -166,7 +264,6 @@
             width: 3rem;
             height: 3rem;
             background-color: #b78c5a;
-            /* สีทองของวัด */
             border: none;
             border-radius: 9999px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -184,7 +281,6 @@
 
         #backToTop:hover {
             background-color: #9e7346;
-            /* สีเข้มขึ้นเมื่อชี้ */
         }
 
         #backToTop.show {
@@ -197,37 +293,14 @@
             width: 1.5rem;
             height: 1.5rem;
         }
-
-        .hero-bg {
-            position: relative;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            background: none;
-            /* ยกเลิก background ที่อาจมีอยู่ */
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .hero-bg::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('img/Location/07.webp');
-            background-size: cover;
-            background-position: center;
-            filter: blur(5px);
-            /* เบลอเฉพาะพื้นหลัง */
-            z-index: -1;
-            /* ไว้ด้านหลังข้อความ */
-        }
     </style>
 </head>
 
 <body>
-    <!-- Navbar (เหมือนกันทุกหน้า) -->
+    <!-- Scroll Progress Bar -->
+    <div id="progressBar"></div>
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -250,63 +323,66 @@
 
     <!-- Main content -->
     <main>
-        <!-- Hero section -->
-        <section class="hero text-center hero-bg">
-            <div class="container">
+        <!-- Hero Section with Swiper Background -->
+        <section class="hero position-relative text-white" style="height: 100vh; overflow: hidden;">
+            <!-- Swiper Background -->
+            <div class="swiper heroSwiper h-100">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/Location/01.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/02.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/03.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/04.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/05.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/06.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 6">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/07.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 7">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Location/08.webp" class="w-100 h-100" loading="lazy" style="object-fit: cover;"
+                            alt="วัดอริยวงศาราม 8">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dark Overlay -->
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.421); z-index: 1;">
+            </div>
+
+            <!-- Content -->
+            <div class="container position-absolute top-50 start-50 translate-middle text-center text-white z-2"
+                style="z-index: 2;">
                 <h1 class="display-4 fw-light" data-aos="fade-up">วัดอริยวงศาราม (หนองน้ำขาว)</h1>
-                <p class="lead" data-aos="fade-up" data-aos-delay="100">วัดราษฎร์ธรรมยุติกนิกาย</p>
-                <p class="mt-4" data-aos="fade-up" data-aos-delay="200">
+                <p class="lead herop" data-aos="fade-up" data-aos-delay="100">วัดราษฎร์ธรรมยุติกนิกาย</p>
+                <p class="mt-4 herop" data-aos="fade-up" data-aos-delay="200">
                     หมู่ 3 ต.ดอนกระเบื้อง อ.บ้านโป่ง จ.ราชบุรี 70110<br>
                     โทร. 098-497-8916, 032-299-406
                 </p>
             </div>
         </section>
 
-        <!-- Swiper slider (sweeper.js) -->
-        <section class="container mt-5">
-            <h2 class="section-title" data-aos="fade-right">บรรยากาศวัด</h2>
-            <div class="swiper mySwiper" data-aos="zoom-in" data-aos-delay="100">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="img/Location/01.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม1"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/02.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม2"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/03.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม3"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/04.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม4"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/05.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม5"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/06.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม6"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/07.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม7"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Location/08.webp" class="d-block w-100 h-100" alt="บรรยากาศวัดอริยวงศาราม8"
-                            style="object-fit: cover;" loading="lazy">
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </section>
+        
 
-        <!-- Cards แนะนำ -->
+        <!-- Cards (กิจกรรมหลัก) -->
         <section class="container mt-5 pt-4">
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up">
@@ -332,12 +408,90 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Parallax Section 1 -->
+        <div class="parallax" style="background-image: url('img/Location/02.webp');" data-aos="fade">
+            
+            <h2 class="display-5">ธรรมะ คือ ความสงบ</h2>
+             <!-- Dark Overlay -->
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.421); z-index: 1;">
+            </div>
+            
+        </div>
+
+
+        <!-- ตัวนับ (Counter) -->
+        <section class="container my-5">
+            <div class="row">
+                <div class="col-md-4 counter-box" data-aos="zoom-in">
+                    <div class="counter-number" id="counter1">0</div>
+                    <p>ปีแห่งการเผยแผ่ธรรม 2508-ปัจจุบัน (ปี)</p>
+                </div>
+                <div class="col-md-4 counter-box" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="counter-number" id="counter2">0</div>
+                    <p>จำนวนผู้มาปฏิบัติธรรม (คน)</p>
+                </div>
+                <div class="col-md-4 counter-box" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="counter-number" id="counter3">0</div>
+                    <p>กิจกรรมทางศาสนา (ปี)</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- กิจกรรมล่าสุด -->
+        <section class="container my-5">
+            <h2 class="section-title">กิจกรรมล่าสุด</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card-custom">
+                        <img src="img/Location/03.webp" class="card-img-top" loading="lazy" alt="กิจกรรม 1">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">ปฏิบัติธรรมเดือนสิงหาคม</h5>
+                            <p class="card-text text-muted">ร่วมปฏิบัติธรรมและฟังธรรมโดยพระอาจารย์ชื่อดัง วันที่ 15-16 สิงหาคมนี้</p>
+ 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-custom">
+                        <img src="img/Location/04.webp" class="card-img-top" loading="lazy" alt="กิจกรรม 2">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">วันอาสาฬหบูชา</h5>
+                            <p class="card-text text-muted">กิจกรรมเวียนเทียน ฟังธรรม และทำบุญตักบาตร ณ อุโบสถวัด</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-custom">
+                        <img src="img/Location/05.webp" class="card-img-top" loading="lazy" alt="กิจกรรม 3">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">ทอดกฐินสามัคคี</h5>
+                            <p class="card-text text-muted">ร่วมทำบุญทอดกฐิน ประจำปี 2568 ในวันที่ 5 พฤศจิกายน</p>
+  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="activities.html" class="btn-gold">ดูกิจกรรมทั้งหมด</a>
+            </div>
+        </section>
+
+        
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="text-center">
+                <!-- Social Icons -->
+                <div class="social-icons mb-3">
+                    <a href="https://www.facebook.com/ariyawat11?mibextid=ZbWKwL" target="_blank" rel="noopener"><i class="lab la-facebook"></i></a>
+                    <a href="https://youtube.com/@watariyawongsaram?si=XcOI4BHjdVzHKVGp" target="_blank" rel="noopener"><i class="lab la-youtube"></i></a>
+                </div>
                 <p class="text-lg mb-2">
                     © <span id="year-th"></span> วัดอริยวงศาราม (หนองน้ำขาว)
                 </p>
@@ -357,42 +511,24 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Swiper JS (sweeper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        AOS.init({ duration: 800, once: true });
 
-        // Set year
         document.getElementById('year-th').textContent = new Date().getFullYear() + 543;
 
-        // Initialize Swiper
-        var swiper = new Swiper('.mySwiper', {
+        // Hero Swiper
+        var heroSwiper = new Swiper('.heroSwiper', {
             loop: true,
-            spaceBetween: 0,
-            effect: "fade",
-            fadeEffect: {
-                crossFade: true
-            },
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+            speed: 1000,
             lazy: {
                 loadPrevNext: true,
             },
@@ -401,16 +537,54 @@
         // Back to top
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
+            backToTop.classList.toggle('show', window.scrollY > 300);
         });
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Scroll Progress Bar
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // ฟังก์ชัน Counter อย่างง่าย (ใช้ Intersection Observer)
+        function animateCounter(elementId, target, duration = 2000) {
+            const element = document.getElementById(elementId);
+            let start = 0;
+            const increment = target / (duration / 16); // ประมาณ 60 fps
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.innerText = target;
+                    clearInterval(timer);
+                } else {
+                    element.innerText = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // ใช้ Intersection Observer เพื่อเริ่มนับเมื่อเข้ามาใน viewport
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // เริ่มนับเมื่อเห็น section ตัวนับ
+                    animateCounter('counter1', 61);  //  ปี
+                    animateCounter('counter2', 1250); //  คน
+                    animateCounter('counter3', 6);   //  กิจกรรม
+                    observer.disconnect(); // นับครั้งเดียว
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(document.querySelector('.counter-box')); // สังเกตกล่องแรกก็พอ
+
     </script>
 </body>
 
