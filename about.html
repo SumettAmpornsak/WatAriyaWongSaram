@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>เกี่ยวกับวัด - วัดอริยวงศาราม(หนองน้ำขาว)</title>
-    <!-- SEO Meta (เหมือนเดิม) -->
-    <meta name="description" content="ประวัติวัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี ปฐมเจ้าอาวาส และความเป็นมา" />
-    <meta name="keywords" content="ประวัติวัด, ปฐมเจ้าอาวาส, หลวงพ่อมหาปิ่น ชลิโต, วัดอริยวงศาราม, หนองน้ำขาว" />
-    <!-- Open Graph etc. copy from index หรือย่อได้ -->
+    <!-- SEO Meta -->
+    <meta name="description"
+        content="ประวัติวัดอริยวงศาราม หนองน้ำขาว บ้านโป่ง ราชบุรี ปฐมเจ้าอาวาส และเจ้าอาวาสองค์ปัจจุบัน" />
+    <meta name="keywords"
+        content="ประวัติวัด, ปฐมเจ้าอาวาส, หลวงพ่อมหาปิ่น ชลิโต, เจ้าอาวาสปัจจุบัน, วัดอริยวงศาราม, หนองน้ำขาว" />
+    <!-- Open Graph -->
     <meta property="og:title" content="เกี่ยวกับวัด - วัดอริยวงศาราม" />
-    <!-- เรียกใช้ resource เหมือนหน้า index -->
+    <!-- เรียกใช้ resource -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet"
@@ -19,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         body {
-            font-family: "Prompt", sans-serif;
+            font-family: 'Prompt', sans-serif;
             background-color: #f9f7f4;
             color: #3a3a3a;
         }
@@ -27,6 +29,7 @@
         .navbar {
             background-color: #ffffffdd;
             backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .navbar-brand {
@@ -36,6 +39,9 @@
 
         .nav-link {
             color: #5f4b3a;
+            font-weight: 400;
+            margin: 0 5px;
+            transition: 0.2s;
         }
 
         .nav-link:hover,
@@ -96,7 +102,7 @@
             color: #7a6857;
         }
 
-        /* เพิ่ม/ปรับปรุง CSS ในส่วน style */
+        /* ปรับปรุงปุ่ม back to top */
         #backToTop {
             position: fixed;
             bottom: 1.5rem;
@@ -104,7 +110,6 @@
             width: 3rem;
             height: 3rem;
             background-color: #b78c5a;
-            /* สีทองของวัด */
             border: none;
             border-radius: 9999px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -122,7 +127,6 @@
 
         #backToTop:hover {
             background-color: #9e7346;
-            /* สีเข้มขึ้นเมื่อชี้ */
         }
 
         #backToTop.show {
@@ -139,6 +143,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -150,12 +155,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">หน้าแรก</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about.html">เกี่ยวกับวัด</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">เกี่ยวกับวัด</a></li>
                     <li class="nav-item"><a class="nav-link" href="activities.html">กิจกรรม</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">รูปภาพ</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
@@ -167,66 +168,118 @@
     <main style="padding-top: 80px">
         <section class="container py-5">
             <h1 class="section-title" data-aos="fade-right">เกี่ยวกับวัด</h1>
+            <!-- แถวที่ 1: ประวัติวัดและภาพรวม -->
             <div class="row g-5">
                 <div class="col-lg-6" data-aos="fade-up">
-                    <img src="img/Old/Old-2563_02.webp" class="img-fluid img-round" alt="พระมหาเจดีย์อริยชลิตเจดีย์" style="width:100%; height:500px; object-fit:cover;">
+                    <img src="img/Old/Old-2563_02.webp" class="img-fluid img-round" alt="พระมหาเจดีย์อริยชลิตเจดีย์"
+                        style="width:100%; height:500px; object-fit:cover;">
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <h3>ประวัติความเป็นมา</h3>
                     <p>
-                        วัดอริยวงศาราม (หนองน้ำขาว) เป็นวัดราษฎร์สังกัดคณะสงฆ์ธรรมยุติกนิกาย <br>ตั้งอยู่ที่ตำบลดอนกระเบื้อง อำเภอบ้านโป่ง จังหวัดราชบุรี  
-                        <br>ก่อตั้งขึ้นเมื่อปี พ.ศ. 2508 <br>โดยหลวงพ่อมหาปิ่น ชลิโต (พระครูวิโรจน์ธรรมาจารย์) ปฐมเจ้าอาวาส  
-                        <br>ท่านได้เดินทางกลับจากธุดงค์ร่วมกับคณะพระคณาจารย์สายวิปัสสนากรรมฐาน <br>(สายหลวงปู่มั่น ภูริทัตโต)  
-                        มาปักกลดที่บริเวณหมู่บ้านหนองน้ำขาว <br>และได้รับความเลื่อมใสจากชาวบ้านจนร่วมกันสร้างวัดขึ้น  
+                        วัดอริยวงศาราม (หนองน้ำขาว) เป็นวัดราษฎร์สังกัดคณะสงฆ์ธรรมยุติกนิกาย
+                        <br>ตั้งอยู่ที่ตำบลดอนกระเบื้อง อำเภอบ้านโป่ง จังหวัดราชบุรี
+                        <br>ก่อตั้งขึ้นเมื่อปี พ.ศ. 2508 <br>โดยหลวงพ่อมหาปิ่น ชลิโต (พระครูวิโรจน์ธรรมาจารย์)
+                        ปฐมเจ้าอาวาส
+                        <br>ท่านได้เดินทางกลับจากธุดงค์ร่วมกับคณะพระคณาจารย์สายวิปัสสนากรรมฐาน <br>(สายหลวงปู่มั่น
+                        ภูริทัตโต)
+                        มาปักกลดที่บริเวณหมู่บ้านหนองน้ำขาว <br>และได้รับความเลื่อมใสจากชาวบ้านจนร่วมกันสร้างวัดขึ้น
                     </p>
                     <p>
-                        ปัจจุบันวัดแห่งนี้เป็นสำนักปฏิบัติธรรมประจำจังหวัดราชบุรี (ธรรมยุต) แห่งที่ 5  
-                        <br>ขึ้นชื่อในด้านความเงียบสงบ ร่มรื่น และการสืบทอดปฏิปทาของพระป่าสายกรรมฐาน  
-                        <br>ภายในวัดมีพระมหาเจดีย์ “อริยชลิตเจดีย์” สีทองอร่าม สูงประมาณ 55 เมตร  
-                        <br>ประดิษฐานพระบรมสารีริกธาตุ อัฐิธาตุ รูปหล่อ และหุ่นขี้ผึ้งของหลวงพ่อมหาปิ่น ชลิโต <br>ให้พุทธศาสนิกชนได้สักการะ  
+                        ปัจจุบันวัดแห่งนี้เป็นสำนักปฏิบัติธรรมประจำจังหวัดราชบุรี (ธรรมยุต) แห่งที่ 5
+                        <br>ขึ้นชื่อในด้านความเงียบสงบ ร่มรื่น และการสืบทอดปฏิปทาของพระป่าสายกรรมฐาน
+                        <br>ภายในวัดมีพระมหาเจดีย์ “อริยชลิตเจดีย์” สีทองอร่าม สูงประมาณ 55 เมตร
+                        <br>ประดิษฐานพระบรมสารีริกธาตุ อัฐิธาตุ รูปหล่อ และหุ่นขี้ผึ้งของหลวงพ่อมหาปิ่น ชลิโต
+                        <br>ให้พุทธศาสนิกชนได้สักการะ
                     </p>
                 </div>
             </div>
 
-            <!-- เจ้าอาวาสและจุดเด่น -->
+            <!-- แถวที่ 2: ลำดับเจ้าอาวาส (ปฐม + ปัจจุบัน) -->
             <div class="row mt-5 g-4">
+                <div class="col-12" data-aos="fade-up">
+                    <h3 class="mb-4">เจ้าอาวาสวัดอริยวงศาราม</h3>
+                </div>
+                <!-- ปฐมเจ้าอาวาส -->
                 <div class="col-md-6" data-aos="fade-up">
-                    <div class="card-custom">
+                    <div class="card-custom h-100">
                         <h4>ปฐมเจ้าอาวาส</h4>
-                        <div class="d-flex align-items-center mt-4">
-                            <img src="img/Old/Old_01.webp" alt="หลวงพ่อมหาปิ่น ชลิโต" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-right:20px;">
+                        <div class="d-flex align-items-center mt-4 flex-wrap">
+                            <img src="img/Old/Old_01.webp" alt="หลวงพ่อมหาปิ่น ชลิโต"
+                                style="width: 200px; height:200px; border-radius:50%; object-fit:cover; margin-right:20px;"
+                                class="mb-3 mb-sm-0">
                             <div>
-                                <h5>หลวงพ่อมหาปิ่น ชลิโต (พระครูวิโรจน์ธรรมาจารย์)</h5>
+                                <h5 class="mt-2">หลวงพ่อมหาปิ่น ชลิโต (พระครูวิโรจน์ธรรมาจารย์)</h5>
                                 <p class="text-muted">ปฐมเจ้าอาวาส ผู้ก่อตั้งวัดเมื่อ พ.ศ. 2508</p>
                                 <p>
-                                    ท่านเป็นที่เคารพศรัทธาของชาวบ้าน<br>เน้นการปฏิบัติธรรมแนวทางพระป่าสายกรรมฐาน<br>มรณภาพเมื่อปี พ.ศ. 2542 <br>แต่ยังคงมีอัฐิธาตุและหุ่นขี้ผึ้งจำลองให้สักการะในพระมหาเจดีย์  
-                                    <br>ปัจจุบันวัดยังคงสืบทอดเจตนารมณ์ของท่านด้วยความเคร่งครัดและเรียบง่าย
+                                    ท่านเป็นที่เคารพศรัทธาของชาวบ้าน เน้นการปฏิบัติธรรมแนวทางพระป่าสายกรรมฐาน
+                                    มรณภาพเมื่อปี พ.ศ. 2542
+                                    แต่ยังคงมีอัฐิธาตุและหุ่นขี้ผึ้งจำลองให้สักการะในพระมหาเจดีย์
+                                    ปัจจุบันวัดยังคงสืบทอดเจตนารมณ์ของท่านด้วยความเคร่งครัดและเรียบง่าย
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- เจ้าอาวาสองค์ปัจจุบัน -->
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-custom">
-                        <h4>จุดเด่นของวัด</h4>
-                        <ul class="list-unstyled mt-3">
-                            <li>
-                                <i class="las la-check-circle" style="color: #b78c5a"></i>
-                                พระมหาเจดีย์ “อริยชลิตเจดีย์” สูง 55 เมตร บรรจุพระบรมสารีริกธาตุ
-                            </li>
-                            <li>
-                                <i class="las la-check-circle" style="color: #b78c5a"></i>
-                                วัดป่าสายธรรมยุต เน้นความสงบ วิปัสสนากรรมฐาน
-                            </li>
-                            <li>
-                                <i class="las la-check-circle" style="color: #b78c5a"></i>
-                                สืบทอดปฏิปทาพระป่าสายหลวงปู่มั่น ภูริทัตโต
-                            </li>
-                            <li>
-                                <i class="las la-check-circle" style="color: #b78c5a"></i>
-                                มีโรงเรียนวัดอริยวงศาราม ตั้งอยู่ในพื้นที่ใกล้เคียง
-                            </li>
-                        </ul>
+                    <div class="card-custom h-100">
+                        <h4>เจ้าอาวาสองค์ปัจจุบัน</h4>
+                        <div class="d-flex align-items-center mt-4 flex-wrap">
+                            <img src="img/Owner/Last_upscale.webp" alt="เจ้าอาวาสปัจจุบัน"
+                                style="width: 200px; height:200px; border-radius:50%; object-fit:cover; margin-right:20px;"
+                                class="mb-3 mb-sm-0">
+                            <div>
+                                <h5 class="mt-2">พระอุดมคัมภีรญาณ (พระอาจารย์มหามานพ จาครโต)</h5>
+                                <p class="text-muted">ดำรงตำแหน่งเจ้าอาวาสตั้งแต่ พ.ศ. 2533 - จนถึงปัจจุบัน</p>
+                                <p>
+                                    พ.ศ. 2533: เริ่มดำรงตำแหน่ง เจ้าอาวาสวัดอริยวงศาราม
+                                    <br>พ.ศ. 2542: ท่านได้รับแต่งตั้งให้ดำรงตำแหน่ง เจ้าคณะตำบลบางแพ (ธรรมยุต)
+                                    <br>พ.ศ. 2546: ได้รับแต่งตั้งเป็น พระอุปัชฌาย์ ประเภทสามัญ
+
+                                    <br>ท่านเป็นศิษย์เอกและผู้สืบทอดโดยตรง ของหลวงพ่อมหาปิ่น ชลิโต
+                                    <br>เป็นกำลังสำคัญในการก่อสร้างพระมหาเจดีย์ “อริยชลิตเจดีย์”
+                                    <br>พัฒนาวัดให้เป็นศูนย์กลางการปฏิบัติธรรมที่สำคัญของจังหวัดราชบุรี
+                                    <br>เน้นการเผยแผ่พระพุทธศาสนาตามแนวทางสายวิปัสสนากรรมฐาน
+                                    <br>และดูแลสืบสานศิลปวัฒนธรรมท้องถิ่น
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- แถวที่ 3: จุดเด่นของวัด (ปรับเป็น card รายข้อ) -->
+            <div class="row mt-5 g-4">
+                <div class="col-12" data-aos="fade-up">
+                    <h4 class="mb-4">จุดเด่นของวัด</h4>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card-custom text-center h-100">
+                        <i class="las la-church" style="font-size: 3rem; color: #b78c5a;"></i>
+                        <h5 class="mt-3">พระมหาเจดีย์</h5>
+                        <p class="mb-0">“อริยชลิตเจดีย์” สูง 55 เมตร <br>บรรจุพระบรมสารีริกธาตุ</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-custom text-center h-100">
+                        <i class="las la-spa" style="font-size: 3rem; color: #b78c5a;"></i>
+                        <h5 class="mt-3">วัดป่าสายธรรมยุต</h5>
+                        <p class="mb-0">เน้นความสงบ วิปัสสนากรรมฐาน</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-custom text-center h-100">
+                        <i class="las la-dharmachakra" style="font-size: 3rem; color: #b78c5a;"></i>
+                        <h5 class="mt-3">สืบทอดปฏิปทา</h5>
+                        <p class="mb-0">พระป่าสายหลวงปู่มั่น ภูริทัตโต</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-custom text-center h-100">
+                        <i class="las la-school" style="font-size: 3rem; color: #b78c5a;"></i>
+                        <h5 class="mt-3">โรงเรียน</h5>
+                        <p class="mb-0">โรงเรียนวัดอริยวงศาราม<br> ตั้งอยู่ใกล้เคียง</p>
                     </div>
                 </div>
             </div>
@@ -237,7 +290,14 @@
     <footer>
         <div class="container">
             <div class="text-center">
-                <p class="text-lg mb-2">
+                <!-- Social Icons -->
+                <div class="social-icons mb-3">
+                    <a href="https://www.facebook.com/ariyawat11?mibextid=ZbWKwL" target="_blank" rel="noopener"><i
+                            class="lab la-facebook"></i></a>
+                    <a href="https://youtube.com/@watariyawongsaram?si=XcOI4BHjdVzHKVGp" target="_blank"
+                        rel="noopener"><i class="lab la-youtube"></i></a>
+                </div>
+                <p class="mb-2">
                     © <span id="year-th"></span> วัดอริยวงศาราม (หนองน้ำขาว)
                 </p>
                 <p class="text-sm opacity-80">
@@ -264,7 +324,7 @@
             duration: 800,
             once: true
         });
-        // Set year
+        // Set year (พ.ศ.)
         document.getElementById('year-th').textContent = new Date().getFullYear() + 543;
 
         // Back to top
