@@ -235,10 +235,24 @@
             width: 1.5rem;
             height: 1.5rem;
         }
+        /* Scroll Progress Bar */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background-color: #b78c5a;
+            z-index: 9999;
+            transition: width 0.1s;
+        }
     </style>
 </head>
 
 <body>
+<!-- Scroll Progress Bar -->
+    <div id="progressBar"></div>
+    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -471,6 +485,15 @@
             } else {
                 backToTop.classList.remove('show');
             }
+        });
+
+        // Scroll Progress Bar
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
         });
 
         backToTop.addEventListener('click', () => {
