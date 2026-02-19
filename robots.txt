@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://watpaplakpradu.vercel.app/sitemap.xml
+Sitemap: https://watariyawongsaram.vercel.app/sitemap.xml
 
 # Block these if not needed
 Disallow: /admin/
